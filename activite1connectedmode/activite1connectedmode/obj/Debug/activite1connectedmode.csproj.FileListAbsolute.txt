@@ -1,1 +1,9 @@
 D:\Dossier CDS301 2024-2025\activite1connectedmode\activite1connectedmode\bin\Debug\activite1connectedmode.exe.config
+D:\Dossier CDS301 2024-2025\activite1connectedmode\activite1connectedmode\bin\Debug\activite1connectedmode.exe
+D:\Dossier CDS301 2024-2025\activite1connectedmode\activite1connectedmode\bin\Debug\activite1connectedmode.pdb
+D:\Dossier CDS301 2024-2025\activite1connectedmode\activite1connectedmode\obj\Debug\activite1connectedmode.csprojResolveAssemblyReference.cache
+D:\Dossier CDS301 2024-2025\activite1connectedmode\activite1connectedmode\obj\Debug\activite1connectedmode.Form1.resources
+D:\Dossier CDS301 2024-2025\activite1connectedmode\activite1connectedmode\obj\Debug\activite1connectedmode.Properties.Resources.resources
+D:\Dossier CDS301 2024-2025\activite1connectedmode\activite1connectedmode\obj\Debug\activite1connectedmode.csproj.GenerateResource.Cache
+D:\Dossier CDS301 2024-2025\activite1connectedmode\activite1connectedmode\obj\Debug\activite1connectedmode.exe
+D:\Dossier CDS301 2024-2025\activite1connectedmode\activite1connectedmode\obj\Debug\activite1connectedmode.pdb

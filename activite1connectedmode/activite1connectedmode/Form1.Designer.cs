@@ -31,7 +31,7 @@
             this.buttonCompter = new System.Windows.Forms.Button();
             this.buttonSupprimer = new System.Windows.Forms.Button();
             this.buttonAjouter = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxPersonnes = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // buttonCompter
@@ -61,25 +61,26 @@
             this.buttonAjouter.Text = "Ajouter une personne";
             this.buttonAjouter.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // listBoxPersonnes
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(233, 89);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(181, 147);
-            this.listBox1.TabIndex = 3;
+            this.listBoxPersonnes.FormattingEnabled = true;
+            this.listBoxPersonnes.Location = new System.Drawing.Point(233, 89);
+            this.listBoxPersonnes.Name = "listBoxPersonnes";
+            this.listBoxPersonnes.Size = new System.Drawing.Size(181, 147);
+            this.listBoxPersonnes.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 355);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxPersonnes);
             this.Controls.Add(this.buttonAjouter);
             this.Controls.Add(this.buttonSupprimer);
             this.Controls.Add(this.buttonCompter);
             this.Name = "Form1";
             this.Text = "Connexion";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -89,7 +90,7 @@
         private System.Windows.Forms.Button buttonCompter;
         private System.Windows.Forms.Button buttonSupprimer;
         private System.Windows.Forms.Button buttonAjouter;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxPersonnes;
     }
 }
 
