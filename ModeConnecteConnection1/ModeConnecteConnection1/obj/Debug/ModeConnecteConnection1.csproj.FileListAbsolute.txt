@@ -1,0 +1,6 @@
+D:\Dossier CDS301 2024-2025\ModeConnecteConnection1\ModeConnecteConnection1\bin\Debug\ModeConnecteConnection1.exe.config
+D:\Dossier CDS301 2024-2025\ModeConnecteConnection1\ModeConnecteConnection1\bin\Debug\ModeConnecteConnection1.exe
+D:\Dossier CDS301 2024-2025\ModeConnecteConnection1\ModeConnecteConnection1\bin\Debug\ModeConnecteConnection1.pdb
+D:\Dossier CDS301 2024-2025\ModeConnecteConnection1\ModeConnecteConnection1\obj\Debug\ModeConnecteConnection1.csprojResolveAssemblyReference.cache
+D:\Dossier CDS301 2024-2025\ModeConnecteConnection1\ModeConnecteConnection1\obj\Debug\ModeConnecteConnection1.exe
+D:\Dossier CDS301 2024-2025\ModeConnecteConnection1\ModeConnecteConnection1\obj\Debug\ModeConnecteConnection1.pdb
