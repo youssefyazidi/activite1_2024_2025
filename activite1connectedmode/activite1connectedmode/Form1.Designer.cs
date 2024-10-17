@@ -32,6 +32,7 @@
             this.buttonSupprimer = new System.Windows.Forms.Button();
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.listBoxPersonnes = new System.Windows.Forms.ListBox();
+            this.textBoxPersonne = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonCompter
@@ -42,6 +43,7 @@
             this.buttonCompter.TabIndex = 0;
             this.buttonCompter.Text = "Compte des personnes";
             this.buttonCompter.UseVisualStyleBackColor = true;
+            this.buttonCompter.Click += new System.EventHandler(this.buttonCompter_Click);
             // 
             // buttonSupprimer
             // 
@@ -51,6 +53,7 @@
             this.buttonSupprimer.TabIndex = 1;
             this.buttonSupprimer.Text = "Supprimer la personne";
             this.buttonSupprimer.UseVisualStyleBackColor = true;
+            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
             // 
             // buttonAjouter
             // 
@@ -60,6 +63,7 @@
             this.buttonAjouter.TabIndex = 2;
             this.buttonAjouter.Text = "Ajouter une personne";
             this.buttonAjouter.UseVisualStyleBackColor = true;
+            this.buttonAjouter.Click += new System.EventHandler(this.buttonAjouter_Click);
             // 
             // listBoxPersonnes
             // 
@@ -69,11 +73,19 @@
             this.listBoxPersonnes.Size = new System.Drawing.Size(181, 147);
             this.listBoxPersonnes.TabIndex = 3;
             // 
+            // textBoxPersonne
+            // 
+            this.textBoxPersonne.Location = new System.Drawing.Point(33, 260);
+            this.textBoxPersonne.Name = "textBoxPersonne";
+            this.textBoxPersonne.Size = new System.Drawing.Size(151, 20);
+            this.textBoxPersonne.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 355);
+            this.Controls.Add(this.textBoxPersonne);
             this.Controls.Add(this.listBoxPersonnes);
             this.Controls.Add(this.buttonAjouter);
             this.Controls.Add(this.buttonSupprimer);
@@ -82,6 +94,7 @@
             this.Text = "Connexion";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -91,6 +104,7 @@
         private System.Windows.Forms.Button buttonSupprimer;
         private System.Windows.Forms.Button buttonAjouter;
         private System.Windows.Forms.ListBox listBoxPersonnes;
+        private System.Windows.Forms.TextBox textBoxPersonne;
     }
 }
 

@@ -27,8 +27,11 @@ namespace activite1connectedmode
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            listBoxPersonnes.Sorted = true;
+
             //Parameter la connexion
-            string chaine = @"Data Source = .\SQLEXPRESS;Initial Catalog=MABASE;Integrated Security=true";
+            string chaine = 
+                @"Data Source = .\SQLEXPRESS;Initial Catalog=MABASE;Integrated Security=true";
             connexion = new SqlConnection(chaine);
             // connexion.ConnectionString = chaine;
             commande = new SqlCommand();
@@ -58,6 +61,83 @@ namespace activite1connectedmode
             //Fermeture de la connexion
             connexion.Close();
 
+        }
+
+
+        //Fonction qui execute le code passé en paramètre dans la base (LMD)
+        //INSERT UPDATE DELETE
+        private bool executeCmd(string text)
+        {
+            try
+            {
+                commande.CommandText = text;
+                //Ouvrir la connexion
+                connexion.Open();
+                //Envoyer la commande
+                int numRows = commande.ExecuteNonQuery();
+                //Fermeture de la connexion
+                connexion.Close();
+                return false;
+            }
+            catch(SqlException e)
+            {
+                return true;
+            }
+        }
+
+        private void buttonAjouter_Click(object sender, EventArgs e)
+        {
+            if(textBoxPersonne.Text.Trim() == "")
+            {
+                MessageBox.Show("Veuillez remplir le champs!!!!");
+                return;
+            }
+
+            if (executeCmd("INSERT INTO PERSONNE VALUES('" + textBoxPersonne.Text.Trim() + "')"))
+            {
+                MessageBox.Show("Probleme d'insertion  de l 'élément");
+            }
+            else
+            {
+                listBoxPersonnes.Items.Add(textBoxPersonne.Text.Trim());
+               
+            }
+
+        }
+
+        private void buttonSupprimer_Click(object sender, EventArgs e)
+        {
+            // MessageBox.Show("DELETE FROM PERSONNE WHERE nom='" + listBoxPersonnes.SelectedItem + "'");
+
+            if(executeCmd("DELETE FROM PERSONNE WHERE nom='"+listBoxPersonnes.SelectedItem+"'"))
+            {
+                MessageBox.Show("Probeme de suppression de l 'élément");
+            }
+            else
+            {
+                listBoxPersonnes.Items.Remove(listBoxPersonnes.SelectedItem);
+            }
+        }
+
+        private void buttonCompter_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT COUNT(*) FROM PERSONNE";
+            commande.CommandText = query;
+            try
+            {
+                connexion.Open();
+                int count = (int)commande.ExecuteScalar();
+                MessageBox.Show("Le nombre de personne est : " + count);
+             
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connexion.Close();
+            }
         }
     }
 }
