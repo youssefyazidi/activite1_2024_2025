@@ -1,0 +1,15 @@
+USE MASTER
+GO 
+
+CREATE DATABASE Vente_db
+GO
+
+USE Vente_db
+GO
+
+CREATE TABLE CLIENT(
+	CodeCl varchar(10) PRIMARY KEY,
+	Nom VARCHAR (100),
+	Ville VARCHAR (100)
+)
+GO
