@@ -215,10 +215,7 @@ namespace TP1ModeConnecte
         {
             if(mode == 0)
             {
-                if (textBoxNom.Text.Trim()=="")
-                    {
-                    return;
-                }
+              
                 Cmd.CommandText =
                    "DELETE FROM CLIENT WHERE CodeCL=@code";
                 Cmd.Parameters.Clear();
