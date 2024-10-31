@@ -117,13 +117,28 @@ namespace modeDeConnecte1
         private void buttonProducts_Click(object sender, EventArgs e)
         {
             //Composant consomateur de données
-            dataGridView1.DataSource = dataSet.Tables["Products"];
+            dataGridView1.DataSource = dataSet;
+            dataGridView1.DataMember = "Products";
         }
 
         private void buttonSuppliers_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = dataSet;
             dataGridView1.DataMember = "Suppliers";
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.DataMember == "Products")
+            {
+                DataRow row = dataSet.Tables["Products"].Rows[e.RowIndex];
+                DataRelation relation= dataSet.Relations["fk_pr_sup"];
+
+                DataRow rowParent = row.GetParentRow(relation);
+
+                MessageBox.Show(rowParent["SupplierName"].ToString());
+               
+            }
         }
     }
 }
