@@ -1,0 +1,17 @@
+use BiblioDB
+GO
+
+CREATE TABLE Theme 
+(
+CodeTh INT PRIMARY KEY IDENTITY, 
+IntituleTh VARCHAR(150)
+)
+GO
+
+ALTER TABLE Livre
+ADD CodeTh INT 
+GO
+
+ALTER TABLE Livre
+ADD FOREIGN KEY (CodeTh) REFERENCES Theme(CodeTh)
+GO
