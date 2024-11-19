@@ -45,9 +45,9 @@
             this.buttonSuivant = new System.Windows.Forms.Button();
             this.buttonDernier = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonRechercher = new System.Windows.Forms.Button();
             this.textBoxCodeRecherche = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.buttonRechercher = new System.Windows.Forms.Button();
             this.buttonQuitter = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -161,6 +161,7 @@
             this.buttonPremier.TabIndex = 12;
             this.buttonPremier.Text = "<<";
             this.buttonPremier.UseVisualStyleBackColor = true;
+            this.buttonPremier.Click += new System.EventHandler(this.buttonPremier_Click);
             // 
             // buttonPrecedent
             // 
@@ -170,6 +171,7 @@
             this.buttonPrecedent.TabIndex = 13;
             this.buttonPrecedent.Text = "<";
             this.buttonPrecedent.UseVisualStyleBackColor = true;
+            this.buttonPrecedent.Click += new System.EventHandler(this.buttonPrecedent_Click);
             // 
             // buttonSuivant
             // 
@@ -179,6 +181,7 @@
             this.buttonSuivant.TabIndex = 14;
             this.buttonSuivant.Text = ">";
             this.buttonSuivant.UseVisualStyleBackColor = true;
+            this.buttonSuivant.Click += new System.EventHandler(this.buttonSuivant_Click);
             // 
             // buttonDernier
             // 
@@ -188,6 +191,7 @@
             this.buttonDernier.TabIndex = 15;
             this.buttonDernier.Text = ">>";
             this.buttonDernier.UseVisualStyleBackColor = true;
+            this.buttonDernier.Click += new System.EventHandler(this.buttonDernier_Click);
             // 
             // groupBox1
             // 
@@ -200,15 +204,6 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Recherche";
-            // 
-            // buttonRechercher
-            // 
-            this.buttonRechercher.Location = new System.Drawing.Point(71, 19);
-            this.buttonRechercher.Name = "buttonRechercher";
-            this.buttonRechercher.Size = new System.Drawing.Size(123, 23);
-            this.buttonRechercher.TabIndex = 10;
-            this.buttonRechercher.Text = "Rechercher";
-            this.buttonRechercher.UseVisualStyleBackColor = true;
             // 
             // textBoxCodeRecherche
             // 
@@ -226,6 +221,15 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Code adhérent :";
             // 
+            // buttonRechercher
+            // 
+            this.buttonRechercher.Location = new System.Drawing.Point(71, 19);
+            this.buttonRechercher.Name = "buttonRechercher";
+            this.buttonRechercher.Size = new System.Drawing.Size(123, 23);
+            this.buttonRechercher.TabIndex = 10;
+            this.buttonRechercher.Text = "Rechercher";
+            this.buttonRechercher.UseVisualStyleBackColor = true;
+            // 
             // buttonQuitter
             // 
             this.buttonQuitter.Location = new System.Drawing.Point(139, 322);
@@ -234,12 +238,13 @@
             this.buttonQuitter.TabIndex = 17;
             this.buttonQuitter.Text = "Quitter";
             this.buttonQuitter.UseVisualStyleBackColor = true;
+            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 357);
+            this.ClientSize = new System.Drawing.Size(621, 369);
             this.Controls.Add(this.buttonQuitter);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonDernier);
@@ -260,6 +265,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "Mise à jour des adherents";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
