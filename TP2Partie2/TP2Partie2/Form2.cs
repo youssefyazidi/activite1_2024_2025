@@ -38,12 +38,21 @@ namespace TP2Partie2
             adapterAdherent.SelectCommand =
                 new SqlCommand("SELECT * FROM ADHERENT",connexion);
 
+            //générer les commandes de MAJ
+            SqlCommandBuilder builder = new SqlCommandBuilder(adapterAdherent);
+            MessageBox.Show(builder.GetInsertCommand().CommandText);
             //remplir le DataSet
             adapterAdherent.Fill(dsBiblio, "ADHERENT");
 
             //Liaison des données
 
             AdherentBS.DataSource = dsBiblio.Tables["ADHERENT"];
+
+
+            //Attribuer une valeur default ç la date d'inscription
+            dsBiblio.Tables["ADHERENT"].Columns["DateInscription"].DefaultValue =
+                DateTime.Now;
+
 
             textBoxCode.DataBindings.Add("Text", AdherentBS, "CodeA");
             textBoxNom.DataBindings.Add("Text", AdherentBS, "NomA");
@@ -75,6 +84,79 @@ namespace TP2Partie2
         private void buttonDernier_Click(object sender, EventArgs e)
         {
             AdherentBS.MoveLast();
+        }
+
+        private void buttonRechercher_Click(object sender, EventArgs e)
+        {
+            string codeArechercher = textBoxCodeRecherche.Text.Trim();
+
+            /* DataRow row=
+                  dsBiblio.Tables["ADEHRENT"].Select("CodeA='"+codeArechercher+"'")[0];*/
+
+           int position = AdherentBS.Find("CodeA", codeArechercher);
+            //Modifier la position du Binding Source
+            if (position != -1)
+            {
+                AdherentBS.Position = position;
+            }
+            else
+            {
+                MessageBox.Show("Le code n 'existe pas!!");
+            }
+           
+
+        }
+
+        private void buttonNouveau_Click(object sender, EventArgs e)
+        {
+            if (buttonNouveau.Text == "Nouveau")
+            {
+                AdherentBS.AddNew();
+                buttonNouveau.Text = "Ajouter";
+            }
+            else
+            {
+                AdherentBS.EndEdit();
+                buttonNouveau.Text = "Nouveau";
+            }
+        }
+
+        private void buttonModifier_Click(object sender, EventArgs e)
+        {
+            if (buttonModifier.Text == "Modifier")
+            {
+                buttonModifier.Text = "Valider";
+            }
+            else
+            {
+                AdherentBS.EndEdit();
+                buttonModifier.Text = "Modifier";
+            }
+        }
+
+        private void buttonSupprimer_Click(object sender, EventArgs e)
+        {
+            if (
+                MessageBox.Show("Confirmer la suppression ?", "suppression", MessageBoxButtons.OKCancel) == DialogResult.OK
+                )
+
+            {
+                AdherentBS.RemoveAt(AdherentBS.Position);
+            }
+
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            dsBiblio.RejectChanges();
+        }
+
+        private void buttonEnregistrer_Click(object sender, EventArgs e)
+        {
+            //Transfert des changements vers la base
+            adapterAdherent.Update(dsBiblio.Tables["ADHERENT"]);
+            //Confirmation au niveau ds
+            dsBiblio.AcceptChanges();
         }
     }
 }

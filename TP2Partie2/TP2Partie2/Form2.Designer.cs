@@ -48,7 +48,8 @@
             this.textBoxCodeRecherche = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonRechercher = new System.Windows.Forms.Button();
-            this.buttonQuitter = new System.Windows.Forms.Button();
+            this.buttonEnregistrer = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,6 +135,7 @@
             this.buttonNouveau.TabIndex = 9;
             this.buttonNouveau.Text = "Nouveau";
             this.buttonNouveau.UseVisualStyleBackColor = true;
+            this.buttonNouveau.Click += new System.EventHandler(this.buttonNouveau_Click);
             // 
             // buttonModifier
             // 
@@ -143,6 +145,7 @@
             this.buttonModifier.TabIndex = 10;
             this.buttonModifier.Text = "Modifier";
             this.buttonModifier.UseVisualStyleBackColor = true;
+            this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
             // 
             // buttonSupprimer
             // 
@@ -152,6 +155,7 @@
             this.buttonSupprimer.TabIndex = 11;
             this.buttonSupprimer.Text = "Supprimer";
             this.buttonSupprimer.UseVisualStyleBackColor = true;
+            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
             // 
             // buttonPremier
             // 
@@ -229,23 +233,35 @@
             this.buttonRechercher.TabIndex = 10;
             this.buttonRechercher.Text = "Rechercher";
             this.buttonRechercher.UseVisualStyleBackColor = true;
+            this.buttonRechercher.Click += new System.EventHandler(this.buttonRechercher_Click);
             // 
-            // buttonQuitter
+            // buttonEnregistrer
             // 
-            this.buttonQuitter.Location = new System.Drawing.Point(139, 322);
-            this.buttonQuitter.Name = "buttonQuitter";
-            this.buttonQuitter.Size = new System.Drawing.Size(123, 23);
-            this.buttonQuitter.TabIndex = 17;
-            this.buttonQuitter.Text = "Quitter";
-            this.buttonQuitter.UseVisualStyleBackColor = true;
-            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
+            this.buttonEnregistrer.Location = new System.Drawing.Point(34, 322);
+            this.buttonEnregistrer.Name = "buttonEnregistrer";
+            this.buttonEnregistrer.Size = new System.Drawing.Size(217, 23);
+            this.buttonEnregistrer.TabIndex = 17;
+            this.buttonEnregistrer.Text = "Enregistrer dans la base de données";
+            this.buttonEnregistrer.UseVisualStyleBackColor = true;
+            this.buttonEnregistrer.Click += new System.EventHandler(this.buttonEnregistrer_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(34, 366);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(217, 23);
+            this.buttonCancel.TabIndex = 18;
+            this.buttonCancel.Text = "Annuler les modifications";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 369);
-            this.Controls.Add(this.buttonQuitter);
+            this.ClientSize = new System.Drawing.Size(621, 401);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonEnregistrer);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonDernier);
             this.Controls.Add(this.buttonSuivant);
@@ -295,6 +311,7 @@
         private System.Windows.Forms.TextBox textBoxCodeRecherche;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonRechercher;
-        private System.Windows.Forms.Button buttonQuitter;
+        private System.Windows.Forms.Button buttonEnregistrer;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }
