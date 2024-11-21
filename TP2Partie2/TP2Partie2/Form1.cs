@@ -17,7 +17,7 @@ namespace TP2Partie2
         SqlConnection connexion = new SqlConnection();
 
         //La base locale
-        private DataSet dataSet = new DataSet();
+        private DataSet dataSet = ClassDataset.dsBiblio;
 
         //Les adapters 
         SqlDataAdapter livreAdapter = new SqlDataAdapter();
@@ -136,6 +136,12 @@ namespace TP2Partie2
             int codeTh = (int)comboBoxLivres.SelectedValue;
             DataRow row = dataSet.Tables["Theme"].Select("CodeTh="+ codeTh)[0];
             labelTheme.Text = "Theme : " + row["IntituleTh"];
+        }
+
+        private void buttonGererAdherent_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.ShowDialog();
         }
     }
 }

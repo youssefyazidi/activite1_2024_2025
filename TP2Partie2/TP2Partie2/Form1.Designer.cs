@@ -29,25 +29,24 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxThemes = new System.Windows.Forms.ComboBox();
             this.dataGridViewLivres = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxLivres = new System.Windows.Forms.ComboBox();
+            this.comboBoxThemes = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelTheme = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxLivres = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonGererAdherent = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivres)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.dataGridViewLivres);
             this.groupBox1.Controls.Add(this.comboBoxThemes);
             this.groupBox1.Controls.Add(this.label2);
@@ -58,6 +57,41 @@
             this.groupBox1.Size = new System.Drawing.Size(360, 299);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // dataGridViewLivres
+            // 
+            this.dataGridViewLivres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLivres.Location = new System.Drawing.Point(26, 117);
+            this.dataGridViewLivres.Name = "dataGridViewLivres";
+            this.dataGridViewLivres.Size = new System.Drawing.Size(283, 150);
+            this.dataGridViewLivres.TabIndex = 3;
+            // 
+            // comboBoxThemes
+            // 
+            this.comboBoxThemes.FormattingEnabled = true;
+            this.comboBoxThemes.Location = new System.Drawing.Point(135, 66);
+            this.comboBoxThemes.Name = "comboBoxThemes";
+            this.comboBoxThemes.Size = new System.Drawing.Size(174, 21);
+            this.comboBoxThemes.TabIndex = 2;
+            this.comboBoxThemes.SelectedIndexChanged += new System.EventHandler(this.comboBoxThemes_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(53, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Theme:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Livres de meme theme :";
             // 
             // groupBox2
             // 
@@ -73,58 +107,14 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // label1
+            // labelTheme
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Livres de meme theme :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Theme:";
-            // 
-            // comboBoxThemes
-            // 
-            this.comboBoxThemes.FormattingEnabled = true;
-            this.comboBoxThemes.Location = new System.Drawing.Point(135, 66);
-            this.comboBoxThemes.Name = "comboBoxThemes";
-            this.comboBoxThemes.Size = new System.Drawing.Size(174, 21);
-            this.comboBoxThemes.TabIndex = 2;
-            this.comboBoxThemes.SelectedIndexChanged += new System.EventHandler(this.comboBoxThemes_SelectedIndexChanged);
-            // 
-            // dataGridViewLivres
-            // 
-            this.dataGridViewLivres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLivres.Location = new System.Drawing.Point(26, 117);
-            this.dataGridViewLivres.Name = "dataGridViewLivres";
-            this.dataGridViewLivres.Size = new System.Drawing.Size(283, 150);
-            this.dataGridViewLivres.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Thème d\'un Livre:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Livre :";
+            this.labelTheme.AutoSize = true;
+            this.labelTheme.Location = new System.Drawing.Point(88, 117);
+            this.labelTheme.Name = "labelTheme";
+            this.labelTheme.Size = new System.Drawing.Size(99, 13);
+            this.labelTheme.TabIndex = 4;
+            this.labelTheme.Text = "-----------------------";
             // 
             // comboBoxLivres
             // 
@@ -135,30 +125,40 @@
             this.comboBoxLivres.TabIndex = 3;
             this.comboBoxLivres.SelectedIndexChanged += new System.EventHandler(this.comboBoxLivres_SelectedIndexChanged);
             // 
-            // labelTheme
+            // label4
             // 
-            this.labelTheme.AutoSize = true;
-            this.labelTheme.Location = new System.Drawing.Point(88, 117);
-            this.labelTheme.Name = "labelTheme";
-            this.labelTheme.Size = new System.Drawing.Size(99, 13);
-            this.labelTheme.TabIndex = 4;
-            this.labelTheme.Text = "-----------------------";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(37, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Livre :";
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(95, 276);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Thème d\'un Livre:";
+            // 
+            // buttonGererAdherent
+            // 
+            this.buttonGererAdherent.Location = new System.Drawing.Point(405, 282);
+            this.buttonGererAdherent.Name = "buttonGererAdherent";
+            this.buttonGererAdherent.Size = new System.Drawing.Size(280, 23);
+            this.buttonGererAdherent.TabIndex = 2;
+            this.buttonGererAdherent.Text = "Gerer les adherents";
+            this.buttonGererAdherent.UseVisualStyleBackColor = true;
+            this.buttonGererAdherent.Click += new System.EventHandler(this.buttonGererAdherent_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 376);
+            this.Controls.Add(this.buttonGererAdherent);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -166,9 +166,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivres)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivres)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -185,7 +185,7 @@
         private System.Windows.Forms.ComboBox comboBoxLivres;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonGererAdherent;
     }
 }
 

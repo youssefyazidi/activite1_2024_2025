@@ -13,7 +13,7 @@ namespace TP2Partie2
 {
     public partial class Form2 : Form
     {
-        private DataSet dsBiblio = new DataSet();
+        private DataSet dsBiblio = ClassDataset.dsBiblio;
 
         private SqlConnection connexion = new SqlConnection();
 
@@ -40,7 +40,9 @@ namespace TP2Partie2
 
             //générer les commandes de MAJ
             SqlCommandBuilder builder = new SqlCommandBuilder(adapterAdherent);
-            MessageBox.Show(builder.GetInsertCommand().CommandText);
+           /* MessageBox.Show(builder.GetInsertCommand().CommandText);
+            MessageBox.Show(builder.GetDeleteCommand().CommandText);
+            MessageBox.Show(builder.GetUpdateCommand().CommandText);*/
             //remplir le DataSet
             adapterAdherent.Fill(dsBiblio, "ADHERENT");
 
@@ -148,15 +150,48 @@ namespace TP2Partie2
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("Avant cancel");
+            foreach (DataRow row in dsBiblio.Tables["ADHERENT"].Rows)
+            {
+                System.Diagnostics.Debug.WriteLine(row.RowState);
+            }
             dsBiblio.RejectChanges();
+
+            System.Diagnostics.Debug.WriteLine("Apres cancel");
+            foreach (DataRow row in dsBiblio.Tables["ADHERENT"].Rows)
+            {
+                System.Diagnostics.Debug.WriteLine(row.RowState);
+            }
         }
 
         private void buttonEnregistrer_Click(object sender, EventArgs e)
         {
-            //Transfert des changements vers la base
-            adapterAdherent.Update(dsBiblio.Tables["ADHERENT"]);
+                      
+           
+
+            System.Diagnostics.Debug.WriteLine("Avant accept");
+            foreach (DataRow row in dsBiblio.Tables["ADHERENT"].Rows)
+            {
+                System.Diagnostics.Debug.WriteLine(row.RowState);
+            }
             //Confirmation au niveau ds
             dsBiblio.AcceptChanges();
+            System.Diagnostics.Debug.WriteLine("Apres accept");
+            foreach (DataRow row in dsBiblio.Tables["ADHERENT"].Rows)
+            {
+                System.Diagnostics.Debug.WriteLine(row.RowState);
+            }
+
+
+            //Transfert des changements vers la base
+            adapterAdherent.Update(dsBiblio.Tables["ADHERENT"]);
+
+        }
+
+        private void buttonGererEmprunts_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.ShowDialog();
         }
     }
 }
