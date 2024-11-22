@@ -59,12 +59,15 @@ namespace TP2Partie2
             //Lier la liste des livres
             listBoxLivres.DataSource = ds.Tables["Livre"];
             listBoxLivres.DisplayMember = "Titre";
-            listBoxLivres.ValueMember = "CodeL";
+            listBoxLivres.ValueMember = "CodeL"; 
+            
+            //Lier les emprunts au dataGridView
+            dataGridView1.DataSource = ds.Tables["Emprunt"];
+
             charger = true;
 
 
-            //Lier les emprunts au dataGridView
-            dataGridView1.DataSource = ds.Tables["Emprunt"];
+           
 
             comboBoxAdherents_SelectedIndexChanged(sender, e);
             comboBoxTheme_SelectedIndexChanged(sender, e);
@@ -76,7 +79,7 @@ namespace TP2Partie2
             {
                 textBoxNomAderent.Text = (string)comboBoxAdherents.SelectedValue;
                 ds.Tables["Emprunt"].DefaultView.RowFilter =
-                    "CodeA='" + comboBoxAdherents.SelectedText+"'";
+                    "CodeA='" + ((DataRowView)comboBoxAdherents.SelectedItem)["CodeA"]+"'";
             }
         }
 
@@ -94,7 +97,7 @@ namespace TP2Partie2
             try
             {
                 DataRow newRow = ds.Tables["Emprunt"].NewRow();
-                newRow["CodeA"] = "";
+                newRow["CodeA"] = ((DataRowView)comboBoxAdherents.SelectedItem)["CodeA"];
                 newRow["CodeL"] = listBoxLivres.SelectedValue;
                 newRow["DateEmprunt"] = dateTimePickerEmprunt.Value;
 
