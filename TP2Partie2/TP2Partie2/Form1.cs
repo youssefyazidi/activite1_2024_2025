@@ -13,16 +13,8 @@ namespace TP2Partie2
 {
     public partial class Form1 : Form
     {
-        //Le connexion utilisée
-        SqlConnection connexion = new SqlConnection();
 
-        //La base locale
-        private DataSet dataSet = ClassDataset.dsBiblio;
-
-        //Les adapters 
-        SqlDataAdapter livreAdapter = new SqlDataAdapter();
-        SqlDataAdapter themeAdapter = new SqlDataAdapter();
-
+        DataSet dsBiblio = ClassDataset.getDatatSet();
         bool chargementData = false;
         public Form1()
         {
@@ -32,35 +24,6 @@ namespace TP2Partie2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //définir la chaine de connexion
-            connexion.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=BiblioDB;Integrated Security=true";
-
-            //parametrer les adapters
-            livreAdapter.SelectCommand =
-                new SqlCommand("SELECT * FROM Livre", connexion);
-            themeAdapter.SelectCommand =
-               new SqlCommand("SELECT * FROM Theme", connexion);
-
-            //Remplire le Dataset = Le schéma des tables sans contraints
-            livreAdapter.Fill(dataSet, "Livre");
-            themeAdapter.Fill(dataSet, "Theme");
-
-            //Définir les contraintes
-            //le PRIMARY KEY de Livre
-            dataSet.Tables["Livre"].PrimaryKey = new DataColumn[]
-                {dataSet.Tables["Livre"].Columns["CodeL"] };
-
-            //le PRIMARY KEY de Theme
-            dataSet.Tables["Theme"].PrimaryKey = new DataColumn[]
-                {dataSet.Tables["Theme"].Columns["CodeTh"] };
-
-            //Le Foreign Key
-            DataRelation relation = new DataRelation("fk_livre_theme",
-                dataSet.Tables["Theme"].Columns["CodeTh"],
-                dataSet.Tables["Livre"].Columns["CodeTh"]
-                );
-
-            dataSet.Relations.Add(relation);
 
             //Remplir les listes
             remplirComboLivres();
@@ -86,13 +49,13 @@ namespace TP2Partie2
 
         private void remplirComboLivres()
         {
-            comboBoxLivres.DataSource = dataSet.Tables["Livre"];
+            comboBoxLivres.DataSource = dsBiblio.Tables["Livre"];
             comboBoxLivres.DisplayMember = "Titre";
             comboBoxLivres.ValueMember = "CodeTh";
         }
         private void remplirComboThemes()
         {
-            comboBoxThemes.DataSource = dataSet.Tables["Theme"];
+            comboBoxThemes.DataSource = dsBiblio.Tables["Theme"];
             comboBoxThemes.DisplayMember = "IntituleTh";
             comboBoxThemes.ValueMember = "CodeTh";
         }
@@ -118,7 +81,7 @@ namespace TP2Partie2
 
             int codeTh =(int) comboBoxThemes.SelectedValue;
 
-            DataView view = new DataView(dataSet.Tables["Livre"], 
+            DataView view = new DataView(dsBiblio.Tables["Livre"], 
                 "CodeTh=" + codeTh, 
                 null, 
                 DataViewRowState.CurrentRows);
@@ -134,14 +97,45 @@ namespace TP2Partie2
             /* int rowIndex = comboBoxLivres.SelectedIndex;
              DataRow row = dataSet.Tables["Livre"].Rows[rowIndex];*/
             int codeTh = (int)comboBoxLivres.SelectedValue;
-            DataRow row = dataSet.Tables["Theme"].Select("CodeTh="+ codeTh)[0];
+            DataRow row = dsBiblio.Tables["Theme"].Select("CodeTh="+ codeTh)[0];
             labelTheme.Text = "Theme : " + row["IntituleTh"];
         }
 
-        private void buttonGererAdherent_Click(object sender, EventArgs e)
+         private void gererLesAdherentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.ShowDialog();
+
+        }
+
+        private void gererLesEmpruntsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.ShowDialog();
+        }
+
+        private void gererLesRetoursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form4 form4 = new Form4();
+            form4.ShowDialog();
+        }
+
+        private void enregistrerLesModificationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Transfert des changements vers la base
+            ClassDataset.adapterAdherent.Update(dsBiblio.Tables["ADHERENT"]);
+            //Transfert des changements vers la base
+            ClassDataset.adapterEmprunts.Update(dsBiblio.Tables["Emprunt"]);
+
+            
+            //Confirmation au niveau ds
+            dsBiblio.AcceptChanges();
+            
+        }
+
+        private void annulerLesModifictaionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dsBiblio.RejectChanges();
         }
     }
 }

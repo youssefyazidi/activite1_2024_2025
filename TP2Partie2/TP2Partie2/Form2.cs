@@ -13,11 +13,7 @@ namespace TP2Partie2
 {
     public partial class Form2 : Form
     {
-        private DataSet dsBiblio = ClassDataset.dsBiblio;
-
-        private SqlConnection connexion = new SqlConnection();
-
-        private SqlDataAdapter adapterAdherent = new SqlDataAdapter();
+        DataSet dsBiblio = ClassDataset.getDatatSet();
 
 
         //un objet BindinSource
@@ -30,21 +26,8 @@ namespace TP2Partie2
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            //définir la chaine de connexion
-            connexion.ConnectionString = 
-                @"Data Source=.\SQLEXPRESS;Initial Catalog=BiblioDB;Integrated Security=true";
-
-            //Definir la commande de l'adapter
-            adapterAdherent.SelectCommand =
-                new SqlCommand("SELECT * FROM ADHERENT",connexion);
-
-            //générer les commandes de MAJ
-            SqlCommandBuilder builder = new SqlCommandBuilder(adapterAdherent);
-           /* MessageBox.Show(builder.GetInsertCommand().CommandText);
-            MessageBox.Show(builder.GetDeleteCommand().CommandText);
-            MessageBox.Show(builder.GetUpdateCommand().CommandText);*/
-            //remplir le DataSet
-            adapterAdherent.Fill(dsBiblio, "ADHERENT");
+            
+            
 
             //Liaison des données
 
@@ -167,7 +150,8 @@ namespace TP2Partie2
         private void buttonEnregistrer_Click(object sender, EventArgs e)
         {
                       
-           
+            //Transfert des changements vers la base
+            ClassDataset.adapterAdherent.Update(dsBiblio.Tables["ADHERENT"]);
 
             System.Diagnostics.Debug.WriteLine("Avant accept");
             foreach (DataRow row in dsBiblio.Tables["ADHERENT"].Rows)
@@ -182,16 +166,7 @@ namespace TP2Partie2
                 System.Diagnostics.Debug.WriteLine(row.RowState);
             }
 
-
-            //Transfert des changements vers la base
-            adapterAdherent.Update(dsBiblio.Tables["ADHERENT"]);
-
         }
 
-        private void buttonGererEmprunts_Click(object sender, EventArgs e)
-        {
-            Form3 form3 = new Form3();
-            form3.ShowDialog();
-        }
     }
 }

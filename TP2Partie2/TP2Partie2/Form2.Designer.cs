@@ -50,7 +50,6 @@
             this.buttonRechercher = new System.Windows.Forms.Button();
             this.buttonEnregistrer = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonGererEmprunts = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -256,22 +255,11 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // buttonGererEmprunts
-            // 
-            this.buttonGererEmprunts.Location = new System.Drawing.Point(356, 366);
-            this.buttonGererEmprunts.Name = "buttonGererEmprunts";
-            this.buttonGererEmprunts.Size = new System.Drawing.Size(194, 23);
-            this.buttonGererEmprunts.TabIndex = 19;
-            this.buttonGererEmprunts.Text = "Gerer les emprunts";
-            this.buttonGererEmprunts.UseVisualStyleBackColor = true;
-            this.buttonGererEmprunts.Click += new System.EventHandler(this.buttonGererEmprunts_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 401);
-            this.Controls.Add(this.buttonGererEmprunts);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonEnregistrer);
             this.Controls.Add(this.groupBox1);
@@ -325,6 +313,5 @@
         private System.Windows.Forms.Button buttonRechercher;
         private System.Windows.Forms.Button buttonEnregistrer;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonGererEmprunts;
     }
 }

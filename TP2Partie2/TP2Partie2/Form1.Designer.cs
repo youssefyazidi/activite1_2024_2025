@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewLivres = new System.Windows.Forms.DataGridView();
             this.comboBoxThemes = new System.Windows.Forms.ComboBox();
@@ -38,10 +39,19 @@
             this.comboBoxLivres = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonGererAdherent = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gererLesAdherentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gererLesEmpruntsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gererLesRetoursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enrigistrerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enregistrerLesModificationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.annulerLesModifictaionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivres)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -143,24 +153,85 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Thème d\'un Livre:";
             // 
-            // buttonGererAdherent
+            // menuStrip1
             // 
-            this.buttonGererAdherent.Location = new System.Drawing.Point(405, 282);
-            this.buttonGererAdherent.Name = "buttonGererAdherent";
-            this.buttonGererAdherent.Size = new System.Drawing.Size(280, 23);
-            this.buttonGererAdherent.TabIndex = 2;
-            this.buttonGererAdherent.Text = "Gerer les adherents";
-            this.buttonGererAdherent.UseVisualStyleBackColor = true;
-            this.buttonGererAdherent.Click += new System.EventHandler(this.buttonGererAdherent_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.enrigistrerToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(726, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gererLesAdherentsToolStripMenuItem,
+            this.gererLesEmpruntsToolStripMenuItem,
+            this.gererLesRetoursToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(47, 20);
+            this.toolStripMenuItem1.Text = "Gérer";
+            // 
+            // gererLesAdherentsToolStripMenuItem
+            // 
+            this.gererLesAdherentsToolStripMenuItem.Name = "gererLesAdherentsToolStripMenuItem";
+            this.gererLesAdherentsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.gererLesAdherentsToolStripMenuItem.Text = "Gerer les adherents";
+            this.gererLesAdherentsToolStripMenuItem.Click += new System.EventHandler(this.gererLesAdherentsToolStripMenuItem_Click);
+            // 
+            // gererLesEmpruntsToolStripMenuItem
+            // 
+            this.gererLesEmpruntsToolStripMenuItem.Name = "gererLesEmpruntsToolStripMenuItem";
+            this.gererLesEmpruntsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.gererLesEmpruntsToolStripMenuItem.Text = "Gerer les emprunts";
+            this.gererLesEmpruntsToolStripMenuItem.Click += new System.EventHandler(this.gererLesEmpruntsToolStripMenuItem_Click);
+            // 
+            // gererLesRetoursToolStripMenuItem
+            // 
+            this.gererLesRetoursToolStripMenuItem.Name = "gererLesRetoursToolStripMenuItem";
+            this.gererLesRetoursToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.gererLesRetoursToolStripMenuItem.Text = "Gerer les retours";
+            this.gererLesRetoursToolStripMenuItem.Click += new System.EventHandler(this.gererLesRetoursToolStripMenuItem_Click);
+            // 
+            // enrigistrerToolStripMenuItem
+            // 
+            this.enrigistrerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enregistrerLesModificationsToolStripMenuItem,
+            this.annulerLesModifictaionsToolStripMenuItem});
+            this.enrigistrerToolStripMenuItem.Name = "enrigistrerToolStripMenuItem";
+            this.enrigistrerToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.enrigistrerToolStripMenuItem.Text = "Enregistrer";
+            // 
+            // enregistrerLesModificationsToolStripMenuItem
+            // 
+            this.enregistrerLesModificationsToolStripMenuItem.Name = "enregistrerLesModificationsToolStripMenuItem";
+            this.enregistrerLesModificationsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.enregistrerLesModificationsToolStripMenuItem.Text = "Enregistrer les modifications";
+            this.enregistrerLesModificationsToolStripMenuItem.Click += new System.EventHandler(this.enregistrerLesModificationsToolStripMenuItem_Click);
+            // 
+            // annulerLesModifictaionsToolStripMenuItem
+            // 
+            this.annulerLesModifictaionsToolStripMenuItem.Name = "annulerLesModifictaionsToolStripMenuItem";
+            this.annulerLesModifictaionsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.annulerLesModifictaionsToolStripMenuItem.Text = "Annuler les modifictaions";
+            this.annulerLesModifictaionsToolStripMenuItem.Click += new System.EventHandler(this.annulerLesModifictaionsToolStripMenuItem_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 376);
-            this.Controls.Add(this.buttonGererAdherent);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Livres et Themes";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -169,7 +240,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivres)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -185,7 +259,15 @@
         private System.Windows.Forms.ComboBox comboBoxLivres;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button buttonGererAdherent;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem gererLesAdherentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gererLesEmpruntsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gererLesRetoursToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem enrigistrerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enregistrerLesModificationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem annulerLesModifictaionsToolStripMenuItem;
     }
 }
 
