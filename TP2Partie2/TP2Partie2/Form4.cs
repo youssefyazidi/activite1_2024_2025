@@ -52,11 +52,14 @@ namespace TP2Partie2
 
             if (index != -1)
             {
-                string codeA = dataGridView1.Rows[index].Cells[0].Value.ToString();
-                string codeL = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                /* string codeA = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                 string codeL = dataGridView1.Rows[index].Cells[1].Value.ToString();
 
-                DataRow row = dsBiblio.Tables["Emprunt"].Select("CodeA='" + codeA + "' and CodeL='" + codeL + "'")[0];
+                 DataRow row = dsBiblio.Tables["Emprunt"].Select("CodeA='" + codeA + "' and CodeL='" + codeL + "'")[0];
+                 */
 
+                DataRowView rowView =(DataRowView) dataGridView1.SelectedRows[0].DataBoundItem;
+                DataRow row = rowView.Row;
                 row["dateRetour"] = dateTimePickerRetour.Value;
             }
 
