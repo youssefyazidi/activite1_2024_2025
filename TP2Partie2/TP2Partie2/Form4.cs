@@ -58,7 +58,9 @@ namespace TP2Partie2
                  DataRow row = dsBiblio.Tables["Emprunt"].Select("CodeA='" + codeA + "' and CodeL='" + codeL + "'")[0];
                  */
 
-                DataRowView rowView =(DataRowView) dataGridView1.SelectedRows[0].DataBoundItem;
+                DataRowView rowView =
+                    (DataRowView) dataGridView1.SelectedRows[0].DataBoundItem;
+
                 DataRow row = rowView.Row;
                 row["dateRetour"] = dateTimePickerRetour.Value;
             }
